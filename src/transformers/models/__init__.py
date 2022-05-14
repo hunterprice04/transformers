@@ -60,6 +60,7 @@ from . import (
     funnel,
     glpn,
     gpt2,
+    small_transformer,
     gpt_neo,
     gptj,
     herbert,

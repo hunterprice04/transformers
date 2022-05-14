@@ -211,6 +211,7 @@ _import_structure = {
     "models.funnel": ["FUNNEL_PRETRAINED_CONFIG_ARCHIVE_MAP", "FunnelConfig", "FunnelTokenizer"],
     "models.glpn": ["GLPN_PRETRAINED_CONFIG_ARCHIVE_MAP", "GLPNConfig"],
     "models.gpt2": ["GPT2_PRETRAINED_CONFIG_ARCHIVE_MAP", "GPT2Config", "GPT2Tokenizer"],
+    "models.small_transformer": ["SMALL_TRANSFORMER_PRETRAINED_CONFIG_ARCHIVE_MAP", "SmallTransformerConfig"],
     "models.gpt_neo": ["GPT_NEO_PRETRAINED_CONFIG_ARCHIVE_MAP", "GPTNeoConfig"],
     "models.gptj": ["GPTJ_PRETRAINED_CONFIG_ARCHIVE_MAP", "GPTJConfig"],
     "models.herbert": ["HerbertTokenizer"],
@@ -1109,6 +1110,18 @@ else:
             "GPT2Model",
             "GPT2PreTrainedModel",
             "load_tf_weights_in_gpt2",
+        ]
+    )
+    _import_structure["models.small_transformer"].extend(
+        [
+            "SMALL_TRANSFORMER_PRETRAINED_MODEL_ARCHIVE_LIST",
+            "SmallTransformerDoubleHeadsModel",
+            "SmallTransformerForSequenceClassification",
+            "SmallTransformerForTokenClassification",
+            "SmallTransformerLMHeadModel",
+            "SmallTransformerModel",
+            "SmallTransformerPreTrainedModel",
+            "load_tf_weights_in_small_transformer",
         ]
     )
     _import_structure["models.gpt_neo"].extend(
@@ -2051,6 +2064,17 @@ else:
             "TFGPT2PreTrainedModel",
         ]
     )
+    _import_structure["models.small_transformer"].extend(
+        [
+            "TF_SMALL_TRANSFORMER_PRETRAINED_MODEL_ARCHIVE_LIST",
+            "TFSmallTransformerDoubleHeadsModel",
+            "TFSmallTransformerForSequenceClassification",
+            "TFSmallTransformerLMHeadModel",
+            "TFSmallTransformerMainLayer",
+            "TFSmallTransformerModel",
+            "TFSmallTransformerPreTrainedModel",
+        ]
+    )
     _import_structure["models.gptj"].extend(
         [
             "TFGPTJForCausalLM",
@@ -2464,6 +2488,7 @@ else:
     )
     _import_structure["models.encoder_decoder"].append("FlaxEncoderDecoderModel")
     _import_structure["models.gpt2"].extend(["FlaxGPT2LMHeadModel", "FlaxGPT2Model", "FlaxGPT2PreTrainedModel"])
+    _import_structure["models.small_transformer"].extend(["FlaxSmallTransformerLMHeadModel", "FlaxSmallTransformerModel", "FlaxSmallTransformerPreTrainedModel"])
     _import_structure["models.gpt_neo"].extend(
         ["FlaxGPTNeoForCausalLM", "FlaxGPTNeoModel", "FlaxGPTNeoPreTrainedModel"]
     )
@@ -2697,6 +2722,7 @@ if TYPE_CHECKING:
     from .models.funnel import FUNNEL_PRETRAINED_CONFIG_ARCHIVE_MAP, FunnelConfig, FunnelTokenizer
     from .models.glpn import GLPN_PRETRAINED_CONFIG_ARCHIVE_MAP, GLPNConfig
     from .models.gpt2 import GPT2_PRETRAINED_CONFIG_ARCHIVE_MAP, GPT2Config, GPT2Tokenizer
+    from .models.small_transformer import SMALL_TRANSFORMER_PRETRAINED_CONFIG_ARCHIVE_MAP, SmallTransformerConfig
     from .models.gpt_neo import GPT_NEO_PRETRAINED_CONFIG_ARCHIVE_MAP, GPTNeoConfig
     from .models.gptj import GPTJ_PRETRAINED_CONFIG_ARCHIVE_MAP, GPTJConfig
     from .models.herbert import HerbertTokenizer
@@ -3464,6 +3490,16 @@ if TYPE_CHECKING:
             GPT2Model,
             GPT2PreTrainedModel,
             load_tf_weights_in_gpt2,
+        )
+        from .models.small_transformer import (
+            SMALL_TRANSFORMER_PRETRAINED_MODEL_ARCHIVE_LIST,
+            SmallTransformerDoubleHeadsModel,
+            SmallTransformerForSequenceClassification,
+            SmallTransformerForTokenClassification,
+            SmallTransformerLMHeadModel,
+            SmallTransformerModel,
+            SmallTransformerPreTrainedModel,
+            load_tf_weights_in_small_transformer,
         )
         from .models.gpt_neo import (
             GPT_NEO_PRETRAINED_MODEL_ARCHIVE_LIST,
@@ -4250,6 +4286,15 @@ if TYPE_CHECKING:
             TFGPT2Model,
             TFGPT2PreTrainedModel,
         )
+        from .models.small_transformer import (
+            TF_SMALL_TRANSFORMER_PRETRAINED_MODEL_ARCHIVE_LIST,
+            TFSmallTransformerDoubleHeadsModel,
+            TFSmallTransformerForSequenceClassification,
+            TFSmallTransformerLMHeadModel,
+            TFSmallTransformerMainLayer,
+            TFSmallTransformerModel,
+            TFSmallTransformerPreTrainedModel,
+        )
         from .models.gptj import (
             TFGPTJForCausalLM,
             TFGPTJForQuestionAnswering,
@@ -4570,6 +4615,7 @@ if TYPE_CHECKING:
         )
         from .models.encoder_decoder import FlaxEncoderDecoderModel
         from .models.gpt2 import FlaxGPT2LMHeadModel, FlaxGPT2Model, FlaxGPT2PreTrainedModel
+        from .models.small_transformer import FlaxSmallTransformerLMHeadModel, FlaxSmallTransformerModel, FlaxSmallTransformerPreTrainedModel
         from .models.gpt_neo import FlaxGPTNeoForCausalLM, FlaxGPTNeoModel, FlaxGPTNeoPreTrainedModel
         from .models.gptj import FlaxGPTJForCausalLM, FlaxGPTJModel, FlaxGPTJPreTrainedModel
         from .models.marian import FlaxMarianModel, FlaxMarianMTModel, FlaxMarianPreTrainedModel
